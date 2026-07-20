@@ -1,4 +1,4 @@
-# 🚀 FlowBalancer
+# 🚀 NodeBalancer
 
 A custom **Node.js Load Balancer** built from scratch that intelligently distributes incoming requests across multiple backend servers while providing a **real-time monitoring dashboard** using **Socket.io**.
 
