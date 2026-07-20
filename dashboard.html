@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Balancer Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="top-bar">
+            <div>
+                <p class="eyebrow">Load Balancer Monitoring</p>
+                <h1>NodeBalancer</h1>
+                <p class="subtitle">Real-time request flow, server health, and performance metrics.</p>
+            </div>
+
+            <div class="header-actions">
+                <span class="tag">Weighted Round Robin</span>
+                <span class="tag">Socket.IO</span>
+                <span class="tag">Live Metrics</span>
+            </div>
+        </header>
+
+        <section class="overview-grid">
+            <article class="metric-card">
+                <p>Total Requests</p>
+                <h2 id="totalRequests">0</h2>
+            </article>
+            <article class="metric-card">
+                <p>Active Servers</p>
+                <h2 id="activeServers">0</h2>
+            </article>
+            <article class="metric-card">
+                <p>Request Rate</p>
+                <h2 id="requestRate">0/s</h2>
+            </article>
+            <article class="metric-card">
+                <p>Uptime</p>
+                <h2 id="uptime">00:00:00</h2>
+            </article>
+        </section>
+
+        <section class="dashboard-grid">
+            <div class="panel panel-graph">
+                <div class="panel-header">
+                    <h2>Real-Time Request Graph</h2>
+                    <span class="badge live">Live</span>
+                </div>
+                <canvas id="requestChart" height="220"></canvas>
+            </div>
+
+            <div class="panel panel-logs">
+                <div class="panel-header">
+                    <h2>Live Activity</h2>
+                </div>
+                <div id="activityLog" class="log-flow"></div>
+            </div>
+
+            <div class="panel panel-servers full-width">
+                <div class="panel-header">
+                    <h2>Server Pool</h2>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Server</th>
+                                <th>Status</th>
+                                <th>Requests</th>
+                                <th>Weight</th>
+                                <th>Load</th>
+                            </tr>
+                        </thead>
+                        <tbody id="servers"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
